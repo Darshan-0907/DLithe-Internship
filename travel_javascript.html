@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Travel Agency</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #eef2f3;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #ff7e5f, #feb47b);
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5em;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li {
+      display: inline;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.2);
+      border-radius: 5px;
+    }
+
+    .login-btn {
+      background-color: #ff7e5f;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .login-btn:hover {
+      background-color: #e76b52;
+    }
+
+    .user-icon {
+      display: none;
+      font-size: 24px;
+    }
+
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      visibility: hidden;
+    }
+
+    .popup {
+      background: white;
+      padding: 20px;
+      width: 300px;
+      border-radius: 8px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    .popup h2 {
+      margin: 0 0 15px;
+    }
+
+    .popup input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .popup button {
+      width: 100%;
+      padding: 10px;
+      background-color: #ff7e5f;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .popup button:hover {
+      background-color: #e76b52;
+    }
+
+    .hidden {
+      visibility: hidden;
+    }
+
+    .destination {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact {
+  background: rgb(108, 188, 9);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#contact:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.destination:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.destination img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.destination a {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background-color: #ff7e5f;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.destination a:hover {
+  background-color: #e76b52;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5em 0;
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  color: white;
+  font-weight: bold;
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- LOGIN / SIGNUP BUTTON -->
+  <header>
+    <h1>Travel Agency</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Destinations</a></li>
+        <li><a href="#">Packages</a></li>
+        <li><a href="#">Contact</a></li>
+      </ul>
+    </nav>
+    <button id="loginBtn" class="login-btn" onclick="showPopup()">Signup / Login</button>
+    <span id="userIcon" class="user-icon">👤</span>
+  </header>
+
+  <!-- LOGIN / SIGNUP POPUP -->
+  <div id="popupOverlay" class="popup-overlay">
+    <div class="popup">
+      <h2>Signup / Login</h2>
+      <input type="text" id="username" placeholder="Enter your username">
+      <input type="password" id="password" placeholder="Enter your password">
+      <button onclick="login()">Submit</button>
+    </div>
+  </div>
+
+  <main>
+    <section class="destination">
+        <h2>India</h2>
+        <img src="/Travel Agency/images/india.webp" alt="India">
+        <p>Explore the beauty of India and its diverse cultures.</p>
+        <a href="#">Book Now</a>
+      </section>
+      
+    <section class="destination">
+      <h2>Paris</h2>
+      <img src="/Travel Agency/images/paris.jpg" alt="Paris">
+      <p>Visit the Eiffel Tower and enjoy the romantic atmosphere of Paris.</p>
+      <a href="#">Book Now</a>
+    </section>
+
+    <section class="destination">
+      <h2>Tokyo</h2>
+      <img src="/Travel Agency/images/tokyo2.jpg" alt="Tokyo">
+      <p>Explore the vibrant city of Tokyo and experience Japanese culture.</p>
+      <a href="#">Book Now</a>
+    </section>
+
+    <section class="destination">
+      <h2>Abu Dhabi</h2>
+      <img src="/Travel Agency/images/abudhabi.jpg" alt="Abu Dhabi">
+      <p>Discover luxury and modern architecture in Abu Dhabi.</p>
+      <a href="#">Book Now</a>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Phone number: 100</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Travel Agency</p>
+  </footer>
+
+  <script>
+    function showPopup() {
+      document.getElementById("popupOverlay").style.visibility = "visible";
+    }
+
+    function login() {
+      var username = document.getElementById("username").value;
+      var password = document.getElementById("password").value;
+
+      if (username.trim() === "" || password.trim() === "") {
+        alert("Please fill in all fields!");
+      } else {
+        document.getElementById("popupOverlay").style.visibility = "hidden";
+        document.getElementById("loginBtn").style.display = "none";
+        document.getElementById("userIcon").style.display = "inline-block";
+      }
+    }
+  </script>
+
+</body>
+</html>
+
