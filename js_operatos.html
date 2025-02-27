@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operators in JavaScript</title>
+</head>
+<body>
+    <button onclick="calculate(10, 5)">Click to Calculate</button>
+
+    <script>
+        function calculate(a, b) {
+            console.log("Addition:", a + b);
+            console.log("Subtraction:", a - b);
+            console.log("Multiplication:", a * b);
+            console.log("Division:", a / b);
+            console.log("Modulus:", a % b);
+            alert(
+                "Addition: " + (a + b) + "\n" +
+                "Subtraction: " + (a - b) + "\n" +
+                "Multiplication: " + (a * b) + "\n" +
+                "Division: " + (a / b) + "\n" +
+                "Modulus: " + (a % b)
+            );
+        }
+    </script>
+</body>
+</html>
